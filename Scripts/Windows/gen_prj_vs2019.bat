@@ -14,7 +14,7 @@ if exist "vs2019" (
 
 :: Change to the directory and run CMake
 cd vs2019
-cmake -G "Visual Studio 16 2019" -A x64 ..\..\..
+cmake -DEXPORT_PLATFORMS=Windows -G "Visual Studio 16 2019" -A x64 ..\..\..
 
 popd 
 popd

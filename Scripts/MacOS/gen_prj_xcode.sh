@@ -12,7 +12,7 @@ fi
 
 cd Xcode
 echo ${pwd}
-cmake -G "Xcode" ../../..
+cmake -DEXPORT_PLATFORMS=Darwin -G "Xcode" ../../..
 
 popd 
 popd

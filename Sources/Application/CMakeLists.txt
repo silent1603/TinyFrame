@@ -36,12 +36,13 @@ target_link_options(${TARGET_NAME} PRIVATE ${linker_flags})
 # include all the necessary directories
 target_include_directories(${TARGET_NAME}
   PRIVATE 
-    ${TARGET_INCLUDE_FOLDER}
-    ${CMAKE_CURRENT_SOURCE_DIR}/../TinyCore/include
+    ${TARGET_INCLUDE_FOLDER} 
+    ${CMAKE_SOURCE_DIR}/Libs/Internals/TinyCore/include  
+    ${CMAKE_SOURCE_DIR}/Libs/Externals/imgui 
     # Any other extra include required
 )
 
 target_link_directories(${TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR})
 
 # link 
-target_link_libraries(${TARGET_NAME} PUBLIC TinyCore)
+target_link_libraries(${TARGET_NAME} PUBLIC TinyCore imgui glad_gl)

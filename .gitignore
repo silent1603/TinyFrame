@@ -241,8 +241,10 @@ fabric.properties
 ## User settings
 xcuserdata/
 
-Release/
-Libs/Externals
+Release/*
+!Release/.gitkeep
+Libs/Externals/*
+!Libs/Externals/.gitkeep
 Builds/VSCode/
 Builds/Windows/vs2019/
 Builds/Windows/vs2022/

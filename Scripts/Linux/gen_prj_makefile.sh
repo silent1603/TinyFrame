@@ -12,7 +12,7 @@ fi
 
 cd gmake
 echo ${pwd}
-cmake -G "Unix Makefiles" ../../..
+cmake -DEXPORT_PLATFORMS=Linux -G "Unix Makefiles" ../../..
 
 popd 
 popd

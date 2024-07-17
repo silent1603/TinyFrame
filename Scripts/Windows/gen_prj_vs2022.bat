@@ -14,7 +14,7 @@ if exist "vs2022" (
 
 :: Change to the directory and run CMake
 cd vs2022
-cmake -G "Visual Studio 17 2022" -A x64 ..\..\..
+cmake -DEXPORT_PLATFORMS=Windows -G "Visual Studio 17 2022" -A x64 ..\..\..
 
 popd 
 popd
