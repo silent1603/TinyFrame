@@ -250,3 +250,4 @@ Builds/Windows/vs2019/
 Builds/Windows/vs2022/
 Builds/Linux/gmake/
 Builds/Macos/Xcode
+build/

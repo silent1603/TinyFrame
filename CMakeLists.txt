@@ -36,6 +36,9 @@ set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
 
 # Define platform
 set(EXPORT_PLATFORMS "" CACHE PATH "Current Platforms ")
+if ("${EXPORT_PLATFORMS}" STREQUAL "")
+    set(EXPORT_PLATFORMS ${CMAKE_SYSTEM_NAME})
+endif()
 
 #####################################
 # Define Options
