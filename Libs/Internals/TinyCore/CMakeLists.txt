@@ -4,9 +4,7 @@
 #####################################
 set(TARGET_NAME TinyCore)
 set(TARGET_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(TARGET_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/utils.c 
-                    ${CMAKE_CURRENT_SOURCE_DIR}/include/TinyCore.h 
-                    ${CMAKE_CURRENT_SOURCE_DIR}/include/TinyCore_Config.h  )
+file(GLOB_RECURSE TARGET_SOURCES CONFIGURE_DEPENDS *.c *.h)
 
 
 project(${TARGET_NAME}  DESCRIPTION "Core GameEngine" LANGUAGES C)

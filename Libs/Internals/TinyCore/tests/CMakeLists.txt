@@ -1,9 +1,10 @@
 
 set(TARGET_NAME TinyCore_UnitTests)
-add_executable(${TARGET_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/test_TinyCore.cpp)
-target_link_libraries(${TARGET_NAME} PRIVATE TinyCore Catch2::Catch2WithMain)
+file(GLOB_RECURSE TARGET_SOURCES CONFIGURE_DEPENDS *.cpp *.h)
+add_executable(${TARGET_NAME} ${TARGET_SOURCES})
+target_link_libraries(${TARGET_NAME} PRIVATE TinyCore  GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
 target_compile_options(${TARGET_NAME} PRIVATE ${compiler_options})
-target_compile_definitions(${TARGET_NAME} PRIVATE ${compiler_definitions} $<$<BOOL:${OPENSSL_FOUND}>:WITH_OPENSSL>)
+target_compile_definitions(${TARGET_NAME} PRIVATE ${compiler_definitions})
 target_link_options(${TARGET_NAME} PRIVATE ${linker_flags})
 target_include_directories(${TARGET_NAME}
   PRIVATE 
@@ -13,6 +14,6 @@ target_include_directories(${TARGET_NAME}
 )
 
 
-include(CTest)
-include(Catch)
-catch_discover_tests(${TARGET_NAME})
+include(GoogleTest)
+include(Ctest)
+gtest_discover_tests(${TARGET_NAME})

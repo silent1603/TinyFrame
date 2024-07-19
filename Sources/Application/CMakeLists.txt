@@ -45,4 +45,4 @@ target_include_directories(${TARGET_NAME}
 target_link_directories(${TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR})
 
 # link 
-target_link_libraries(${TARGET_NAME} PUBLIC TinyCore imgui glad_gl)
+target_link_libraries(${TARGET_NAME} PUBLIC TinyCore  GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main ZLIB::ZLIB)

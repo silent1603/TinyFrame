@@ -251,3 +251,4 @@ Builds/Windows/vs2022/
 Builds/Linux/gmake/
 Builds/Macos/Xcode
 build/
+vcpkg_installed/

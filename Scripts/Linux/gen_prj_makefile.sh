@@ -4,7 +4,7 @@ pushd  ${SCRIPT_DIR}
 pushd ../../
 pushd ./Builds/Linux
 if [ -d "./gmake" ]; then
-    echo "Directory Build\\Linux\\gmake already exists."
+    echo "Directory Build/Linux/gmake already exists."
 else
     echo "Creating gmake directory..."
     mkdir gmake

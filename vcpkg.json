@@ -1,0 +1,12 @@
+
+{
+    "name": "tinyframe",
+    "version-string": "1.0",
+    "dependencies": [
+        {"name" :"gtest","version>=": "1.14.0#1"},
+        "zlib"
+    ],
+    "builtin-baseline":"bce0dd5af22be5cd47d7b302671075e0cd2e04fb",
+    "overrides": [
+    ]
+}

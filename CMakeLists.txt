@@ -34,6 +34,7 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install)
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
 set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
 
+set(VCPKG_ROOT "${CMAKE_SOURCE_DIR}/Tools/vcpkg")
 # Define platform
 set(EXPORT_PLATFORMS "" CACHE PATH "Current Platforms ")
 if ("${EXPORT_PLATFORMS}" STREQUAL "")
@@ -55,6 +56,7 @@ set(COMMON_EXPORT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Release")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${COMMON_EXPORT_PATH}") # .exe and .dll
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${COMMON_EXPORT_PATH}") # .so and .dylib
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${COMMON_EXPORT_PATH}") # .lib and .a
+
 set(CMAKE_VS_DEBUGGER_WORKING_DIRECTORY "${COMMON_EXPORT_PATH}")
 foreach(CONFIG ${CMAKE_CONFIGURATION_TYPES})
     string(TOUPPER ${CONFIG} CONFIG_UPPER)
@@ -80,8 +82,13 @@ include("${CMAKE_SOURCE_DIR}/Scripts/Common/cmake/compiler_options.cmake")
 include("${CMAKE_SOURCE_DIR}/Scripts/Common/cmake/cpack.cmake")
 include("${CMAKE_SOURCE_DIR}/Scripts/Common/cmake/cppcheck.cmake")
 include("${CMAKE_SOURCE_DIR}/Scripts/Common/cmake/dependencies.cmake")
+include("${CMAKE_SOURCE_DIR}/Scripts/Common/cmake/vcpkg.cmake")
 
+vcpkg_bootstrap()
+vcpkg_install_packages()
 
+find_package(ZLIB REQUIRED)
+find_package(GTest CONFIG REQUIRED)
 if(BUILD_TESTING)
     enable_testing()
 endif()
