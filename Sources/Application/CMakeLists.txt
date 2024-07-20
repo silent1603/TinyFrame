@@ -38,11 +38,39 @@ target_include_directories(${TARGET_NAME}
   PRIVATE 
     ${TARGET_INCLUDE_FOLDER} 
     ${CMAKE_SOURCE_DIR}/Libs/Internals/TinyCore/include  
-    ${CMAKE_SOURCE_DIR}/Libs/Externals/imgui 
+    ${MLPACK_INCLUDE_DIRS} 
+    ${LUA_INCLUDE_DIR} 
+    ${Stb_INCLUDE_DIR}
     # Any other extra include required
 )
 
 target_link_directories(${TARGET_NAME} PRIVATE ${CMAKE_BINARY_DIR})
 
 # link 
-target_link_libraries(${TARGET_NAME} PUBLIC TinyCore  GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main ZLIB::ZLIB)
+target_link_libraries(${TARGET_NAME} PUBLIC TinyCore  GTest::gtest 
+GTest::gtest_main 
+GTest::gmock 
+GTest::gmock_main 
+ZLIB::ZLIB 
+imgui::imgui 
+spdlog::spdlog 
+glad::glad
+Tracy::TracyClient 
+sol2 
+RmlLua 
+RmlCore 
+RmlDebugger
+OpenAL::OpenAL 
+${LUA_LIBRARIES} 
+unofficial::joltphysics::Jolt 
+unofficial::imguizmo::imguizmo 
+unofficial::imgui-node-editor::imgui-node-editor 
+glm::glm 
+Freetype::Freetype 
+unofficial::enet::enet  
+EASTL 
+CURL::libcurl 
+box2d::box2d 
+assimp::assimp 
+rapidjson 
+asio::asio)
